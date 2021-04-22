@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 
 public class DepartmentServicempl implements DepartmentService {
@@ -29,5 +31,10 @@ public class DepartmentServicempl implements DepartmentService {
 
     public List<Department> displayAllDepartment() {
         return departmentDao.findAll();
+    }
+
+    @Override
+    public Optional<Department> findDepartment(String id) {
+        return departmentDao.findById(id);
     }
 }

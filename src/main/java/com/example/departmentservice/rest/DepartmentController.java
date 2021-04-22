@@ -31,4 +31,10 @@ public class DepartmentController {
         return new ResponseEntity<List<Department>>(departmentService.displayAllDepartment(),HttpStatus.OK);
     }
 
+    @GetMapping("/departments/{id}")
+    public ResponseEntity<?> getDepartment(@PathVariable("id") String id)
+    {
+        return ResponseEntity.ok(departmentService.findDepartment(id));
+    }
+
 }
